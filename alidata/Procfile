@@ -1,0 +1,1 @@
+web: gunicorn alidata.alidata.wsgi --log-file -
