@@ -202,19 +202,19 @@ AWS_PRELOAD_METADATA = True # You want this to be on!
 
 
 
-##########
-#### FOR TESTING
-DEBUG = True
-TEMPLATE_DEBUG = True
+# ##########
+# #### FOR TESTING
+# DEBUG = True
+# TEMPLATE_DEBUG = True
 
 
 
-DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'    
+# DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'    
 
 
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
+# MEDIA_URL = '/media/'
+# STATIC_URL = '/static/'
 
 
 
