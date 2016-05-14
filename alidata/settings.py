@@ -193,7 +193,7 @@ AWS_STORAGE_BUCKET_NAME = 'alidata'
 DEFAULT_FILE_STORAGE = 'alidata.s3utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'alidata.s3utils.StaticRootS3BotoStorage'     
 
-S3_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+S3_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 MEDIA_URL = S3_URL + 'media/'
 STATIC_URL = S3_URL + 'static/'
 
