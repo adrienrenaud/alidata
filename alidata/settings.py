@@ -61,20 +61,20 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                # 'django.template.context_processors.debug',
-                # 'django.template.context_processors.request',
-                # 'django.contrib.auth.context_processors.auth',
-                # 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
                 
-                'django.core.context_processors.request',
-                "django.contrib.auth.context_processors.auth",
-                "django.core.context_processors.debug",
-                "django.core.context_processors.i18n",
-                "django.core.context_processors.media",
-                "django.core.context_processors.static",
-                "django.core.context_processors.tz",
-                "django.contrib.messages.context_processors.messages",
-                "django.core.context_processors.media",
+                # 'django.core.context_processors.request',
+                # "django.contrib.auth.context_processors.auth",
+                # "django.core.context_processors.debug",
+                # "django.core.context_processors.i18n",
+                # "django.core.context_processors.media",
+                # "django.core.context_processors.static",
+                # "django.core.context_processors.tz",
+                # "django.contrib.messages.context_processors.messages",
+                # "django.core.context_processors.media",
             ],
         },
     },
@@ -186,8 +186,7 @@ AWS_STORAGE_BUCKET_NAME = 'alidata'
 # AWS_STORAGE_BUCKET_NAME = 'adrienrenauds3bucketdev'
 
 DEFAULT_FILE_STORAGE = 'alidata.s3utils.MediaRootS3BotoStorage'
-# STATICFILES_STORAGE = 'alidata.s3utils.StaticRootS3BotoStorage'     
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'alidata.s3utils.StaticRootS3BotoStorage'     
 
 S3_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 MEDIA_URL = S3_URL + 'media/'
