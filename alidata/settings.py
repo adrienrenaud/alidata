@@ -186,8 +186,8 @@ AWS_STORAGE_BUCKET_NAME = 'alidata'
 # AWS_STORAGE_BUCKET_NAME = 'adrienrenauds3bucketdev'
 
 DEFAULT_FILE_STORAGE = 'alidata.s3utils.MediaRootS3BotoStorage'
-STATICFILES_STORAGE = 'alidata.s3utils.StaticRootS3BotoStorage'     
-
+# STATICFILES_STORAGE = 'alidata.s3utils.StaticRootS3BotoStorage'     
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 S3_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 MEDIA_URL = S3_URL + 'media/'
