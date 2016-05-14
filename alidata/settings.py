@@ -195,3 +195,40 @@ STATIC_URL = S3_URL + 'static/'
 
 AWS_REDUCED_REDUNDANCY = False # We enable this server-wide on our staging server's S3 buckets
 AWS_PRELOAD_METADATA = True # You want this to be on!
+
+
+
+
+
+
+
+##########
+#### FOR TESTING
+DEBUG = True
+TEMPLATE_DEBUG = True
+
+
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'    
+
+
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
