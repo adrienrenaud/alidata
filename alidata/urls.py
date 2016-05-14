@@ -23,4 +23,5 @@ from alidata.views import homepage_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', homepage_view),
+    
 ]

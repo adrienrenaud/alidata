@@ -14,12 +14,11 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 from django.contrib.auth.models import User, Group
 from django.core.files.base import ContentFile
-from siteCoGM.apps.userdata.models import Userdata, Textfile
+
 
 from django.template import TemplateDoesNotExist
 
 from datetime import datetime
-from helper_compte_pf import clean_list, compute_stuff, compute_info, print_compte, print_mail
 
 
 
