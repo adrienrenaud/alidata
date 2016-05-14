@@ -183,7 +183,6 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY_ID')
 
 AWS_STORAGE_BUCKET_NAME = 'alidata'
-# AWS_STORAGE_BUCKET_NAME = 'adrienrenauds3bucketdev'
 
 DEFAULT_FILE_STORAGE = 'alidata.s3utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'alidata.s3utils.StaticRootS3BotoStorage'     
@@ -192,8 +191,8 @@ S3_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 MEDIA_URL = S3_URL + 'media/'
 STATIC_URL = S3_URL + 'static/'
 
-AWS_REDUCED_REDUNDANCY = False # We enable this server-wide on our staging server's S3 buckets
-AWS_PRELOAD_METADATA = True # You want this to be on!
+# AWS_REDUCED_REDUNDANCY = False # We enable this server-wide on our staging server's S3 buckets
+# AWS_PRELOAD_METADATA = True # You want this to be on!
 
 
 
