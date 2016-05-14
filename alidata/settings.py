@@ -191,8 +191,8 @@ S3_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 MEDIA_URL = S3_URL + 'media/'
 STATIC_URL = S3_URL + 'static/'
 
-# AWS_REDUCED_REDUNDANCY = False # We enable this server-wide on our staging server's S3 buckets
-# AWS_PRELOAD_METADATA = True # You want this to be on!
+AWS_REDUCED_REDUNDANCY = False # We enable this server-wide on our staging server's S3 buckets
+AWS_PRELOAD_METADATA = True # You want this to be on!
 
 
 
