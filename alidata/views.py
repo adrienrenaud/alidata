@@ -24,10 +24,13 @@ from datetime import datetime
 
         
         
+# from django.utils import simplejson
+import json
+
+   
         
         
-        
-        
+import gviz_api
         
         
         
@@ -37,7 +40,29 @@ from datetime import datetime
 
 
 def homepage_view(request):
-    argDict = {'request':request,}
+
+    js_data = json.dumps({'foo':300})  
+
+            
+            
+    # Creating the data
+    description = [('X', 'number'), ('Dogs', 'number')]
+    data = [(0,2),(1,21),(2,12),(3,30)]
+
+    # Loading it into gviz_api.DataTable
+    data_table = gviz_api.DataTable(description)
+    data_table.LoadData(data)
+
+    # Create a JSON string.
+    # gviz_data = data_table.ToJSon(columns_order=("X", "Dogs"), order_by="X")
+    gviz_data = data_table.ToJSon()
+    
+    
+    
+    
+    # argDict = {'request':request, 'my_data' : js_data}
+    argDict = {'request':request, 'my_data' : 300, 'js_data': js_data, 'gviz_data' : gviz_data}
+    # argDict = {'request':request, 'foo' : {'bar':100}}
     return render_to_response('homepage.html', argDict, context_instance=RequestContext(request))
     
 # def about(request):

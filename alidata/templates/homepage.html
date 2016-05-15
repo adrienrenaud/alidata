@@ -4,23 +4,31 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<script>
+google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(function() {drawBackgroundColor( {{ gviz_data|safe }} );} );
+</script>
+
 <script type="text/javascript" src="{% static 'my_google_charts.js' %}"></script> 
 
 <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css"> </link>
-
-
+ 
+ 
+ 
+ 
+<script> var myd = {{ my_data }};</script>
 
 </head>
 
 
-bar
-
-foo
-fkkhee
-eeekeke
-eedjdnd
 <h1>ejdjndmd</h1>
 
 <div id="chart_div"></div>
 
+
+<!-- <script>
+var data_from_django = {{ js_data|safe }};
+alert( data_from_django.foo );
+ </script> -->
+{{ gviz_data }}
 <img src="{% static 'images/hand-Writing.jpg' %}" alt=""  />
