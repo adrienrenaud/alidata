@@ -188,12 +188,19 @@ STATICFILES_DIRS = (
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY_ID')
 
-AWS_STORAGE_BUCKET_NAME = 'alidata'
+
 
 DEFAULT_FILE_STORAGE = 'alidata.s3utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'alidata.s3utils.StaticRootS3BotoStorage'     
 
+if os.environ.get('ALIDATA_ENV_TYPE')=='STAGING':
+    AWS_STORAGE_BUCKET_NAME = 'alidata-staging'
+elif os.environ.get('ALIDATA_ENV_TYPE')=='PRODUCTION':
+    AWS_STORAGE_BUCKET_NAME = 'alidata'
+else:
+    AWS_STORAGE_BUCKET_NAME = 'foo'
 S3_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+
 MEDIA_URL = S3_URL + 'media/'
 STATIC_URL = S3_URL + 'static/'
 
@@ -205,20 +212,18 @@ AWS_PRELOAD_METADATA = True # You want this to be on!
 
 
 
+##########
+#### FOR TESTING
+if os.environ.get('ALIDATA_ENV_TYPE')=='DEVELOPMENT':
 
-# ##########
-# #### FOR TESTING
-# DEBUG = True
-# TEMPLATE_DEBUG = True
+    DEBUG = True
+    TEMPLATE_DEBUG = True
 
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'    
 
-
-# DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'    
-
-
-# MEDIA_URL = '/media/'
-# STATIC_URL = '/static/'
+    MEDIA_URL = '/media/'
+    STATIC_URL = '/static/'
 
 
 
