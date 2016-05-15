@@ -1,13 +1,14 @@
 
 <head>
 {% load static %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript" src="{% static 'my_google_charts.js' %}"></script> 
+
 <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css"> </link>
 
-<!-- <style>
-h1 {
-    color: green;
-}
-</style> -->
+
 
 </head>
 
@@ -20,6 +21,6 @@ eeekeke
 eedjdnd
 <h1>ejdjndmd</h1>
 
-
+<div id="chart_div"></div>
 
 <img src="{% static 'images/hand-Writing.jpg' %}" alt=""  />
