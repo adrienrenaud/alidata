@@ -6,4 +6,4 @@ django-storages==1.4.1
 gunicorn==19.5.0
 psycopg2==2.6.1
 static3==0.7.0
-http://google-visualization-python.googlecode.com/files/gviz_api_py-1.8.2.tar.gz‌
+pip install -U -f http://code.google.com/p/google-visualization-python/ gviz-api-py==1.8.2
