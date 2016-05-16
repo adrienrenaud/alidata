@@ -80,26 +80,6 @@ TEMPLATES = [
     },
 ]
 
-# TEMPLATE_CONTEXT_PROCESSORS = (
-    # 'django.core.context_processors.request',
-    # "django.contrib.auth.context_processors.auth",
-    # "django.core.context_processors.debug",
-    # "django.core.context_processors.i18n",
-    # "django.core.context_processors.media",
-    # "django.core.context_processors.static",
-    # "django.core.context_processors.tz",
-    # "django.contrib.messages.context_processors.messages",
-    # "django.core.context_processors.media",
-    # )
-
-
-# TEMPLATE_DIRS = [
-    # os.path.join(BASE_DIR, 'alidata/templates')
-    # # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # # Always use forward slashes, even on Windows.
-    # # Don't forget to use absolute paths, not relative paths.
-# ]
-
 
 
 WSGI_APPLICATION = 'alidata.wsgi.application'
@@ -108,12 +88,12 @@ WSGI_APPLICATION = 'alidata.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+# }
 
 # Update database configuration with $DATABASE_URL.
 import dj_database_url
@@ -167,16 +147,6 @@ STATIC_URL = '/static/'
 
 
 
-# # List of finder classes that know how to find static files in
-# # various locations.
-# STATICFILES_FINDERS = (
-    # 'django.contrib.staticfiles.finders.FileSystemFinder',
-    # 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-# )
-
-
-
 
 
 STATICFILES_DIRS = (
@@ -215,9 +185,8 @@ AWS_PRELOAD_METADATA = True # You want this to be on!
 ##########
 #### FOR TESTING
 if os.environ.get('ALIDATA_ENV_TYPE')=='DEVELOPMENT':
-
     DEBUG = True
-    TEMPLATE_DEBUG = True
+    TEMPLATES[0]['OPTIONS']['debug'] = True
 
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'    
@@ -225,7 +194,17 @@ if os.environ.get('ALIDATA_ENV_TYPE')=='DEVELOPMENT':
     MEDIA_URL = '/media/'
     STATIC_URL = '/static/'
 
-
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydb2',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('POSTGRES_PWD'),
+        'HOST':'localhost',
+        }
+    }
+    
+    
 
 
 

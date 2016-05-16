@@ -20,16 +20,8 @@ from django.template import TemplateDoesNotExist
 
 from datetime import datetime
 
-
-
         
-        
-# from django.utils import simplejson
 import json
-
-   
-        
-        
 import gviz_api
         
         
@@ -41,29 +33,30 @@ import gviz_api
 
 def homepage_view(request):
 
-    js_data = json.dumps({'foo':300})  
-
-            
-            
     # Creating the data
     description = [('X', 'number'), ('Dogs', 'number')]
     data = [(0,2),(1,21),(2,12),(3,30)]
-
+    options = json.dumps( { 'hAxis': { 'title': 'Time'}, 'vAxis': {'title': 'Popularity'}, 'backgroundColor': 'white'} )
+    
     # Loading it into gviz_api.DataTable
     data_table = gviz_api.DataTable(description)
     data_table.LoadData(data)
 
     # Create a JSON string.
-    # gviz_data = data_table.ToJSon(columns_order=("X", "Dogs"), order_by="X")
     gviz_data = data_table.ToJSon()
     
-    
-    
-    
-    # argDict = {'request':request, 'my_data' : js_data}
-    argDict = {'request':request, 'my_data' : 300, 'js_data': js_data, 'gviz_data' : gviz_data}
-    # argDict = {'request':request, 'foo' : {'bar':100}}
+    argDict = {'request':request, 'gviz_data' : gviz_data, 'options':options}
+
     return render_to_response('homepage.html', argDict, context_instance=RequestContext(request))
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 # def about(request):
 #     argDict = {'request':request,}
