@@ -1,0 +1,125 @@
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+heroku login
+
+
+mkdir alidata
+cd alidata
+echo "# alidata" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/adrienrenaud/alidata.git
+git push -u origin master
+
+
+virtualenv -p /usr/bin/python --no-site-packages .
+
+
+source bin/activate
+
+
+
+
+git add ./*
+
+sudo apt-get install libpq-dev python-dev
+
+pip install Django psycopg2
+pip freeze > requirements.txt
+
+
+
+django-admin startproject alidata
+
+
+python manage.py runserver
+
+http://localhost:7000/
+
+
+    
+# Update database configuration with $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
+
+
+
+gviz-api.py==1.8.2
+
+
+alidata/manage.py migrate
+
+
+
+
+
+
+
+
+
+heroku config:set --app rocky-plateau-22080 AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+heroku config:set --app alidata-staging AWS_SECRET_ACCESS_KEY_ID=$AWS_SECRET_ACCESS_KEY_ID
+heroku config:set --app alidata-staging DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
+
+
+pip install gunicorn
+
+heroku config:set DISABLE_COLLECTSTATIC=1
+
+
+git push heroku production:master
+
+
+
+
+
+heroku apps:rename alidata --app rocky-plateau-22080
+
+
+git remote -v
+git remote show origin
+git remote set-url origin git+ssh://git@github.com/username/reponame.git
+heroku create --remote staging
+
+heroku git:remote -a alidata-staging -r staging
+
+git push origin staging
+
+
+pip install -U https://github.com/google/google-visualization-python/zipball/master
+
+
+
+
+
+
+heroku run python manage.py createsuperuser --app alidata-staging
+
+
+heroku run python manage.py migrate --app alidata-staging
+
+
+
+sudo apt-get install postgresql postgresql-contrib
+sudo -u postgres psql postgres
+\password postgres
+sudo -u postgres createdb mydb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
