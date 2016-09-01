@@ -115,8 +115,14 @@ heroku apps --all
 heroku run 'echo $ALIDATA_ENV_TYPE' --app alidata-staging
 
 
-
-
+# for static files
+# for production (or staging):
+# do some changes on static files in master
+git checkout production
+git merge master
+export ALIDATA_ENV_TYPE="PRODUCTION"
+python manage.py collectstatic 
+python manage.py collectstatic --dry-run # to see what it is going to do without doing it!
 
 
 
