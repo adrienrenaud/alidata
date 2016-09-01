@@ -84,21 +84,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'alidata.wsgi.application'
 
+if os.environ.get('ALIDATA_ENV_TYPE')!='DEVELOPMENT':
+    # Database
+    # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
-# DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
-# }
-
-# Update database configuration with $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+    # Update database configuration with $DATABASE_URL.
+    import dj_database_url
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)
 
 
 # Password validation
