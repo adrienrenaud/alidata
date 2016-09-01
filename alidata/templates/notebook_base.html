@@ -1,0 +1,37 @@
+<head>
+{% load static %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script> 
+
+
+$(function(){
+  var mypath = "{% static 'notebook/' %}" + '{{notebook_name|safe}}';
+  $("#includedNotebook").load(mypath); 
+});
+
+</script>
+
+
+
+</head>
+
+
+
+
+
+
+<h1>The Notebook</h1>
+
+
+
+<div id="includedNotebook"></div>
+
+<!-- {% static 'notebook/ana_var18.html' %} -->
+
+
+<!-- <link rel="import" href="{% static 'notebook/ana_var18.html' %}"> -->
+
+<!-- foo -->
+

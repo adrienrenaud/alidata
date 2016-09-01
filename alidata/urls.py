@@ -18,10 +18,12 @@ from django.contrib import admin
 
 
 from alidata.views import homepage_view
+from alidata.views import notebook_view
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', homepage_view),
+    url(r'^notebook/$', notebook_view),
     
 ]

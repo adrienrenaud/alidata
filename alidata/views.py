@@ -47,12 +47,21 @@ def homepage_view(request):
     
     argDict = {'request':request, 'gviz_data' : gviz_data, 'options':options}
 
-    return render_to_response('homepage.html', argDict, context_instance=RequestContext(request))
+    # return render_to_response('homepage.html', argDict, context_instance=RequestContext(request))
+    return render(request, 'homepage.html', context=argDict)
     
     
     
     
     
+def notebook_view(request):
+
+
+    
+    argDict = {'notebook_name': 'ana_var18.html'}
+
+    # return render_to_response('homepage.html', argDict, context_instance=RequestContext(request))
+    return render(request, 'notebook_base.html', context=argDict)
     
     
     

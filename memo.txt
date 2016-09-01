@@ -125,6 +125,8 @@ python manage.py collectstatic
 python manage.py collectstatic --dry-run # to see what it is going to do without doing it!
 
 
+git push staging staging:master # to push local staging branch to alidata-staging
+
 
 
 
