@@ -109,7 +109,10 @@ sudo -u postgres psql postgres
 sudo -u postgres createdb mydb
 
 
-
+### septembre 2016
+heroku --version
+heroku apps --all
+heroku run 'echo $ALIDATA_ENV_TYPE' --app alidata-staging
 
 
 
