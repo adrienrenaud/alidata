@@ -3,17 +3,37 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <script> 
-
-
 $(function(){
   var mypath = "{% static 'notebook/' %}" + '{{notebook_name|safe}}';
+  <!-- $("#includedNotebook").load("{% static 'notebook/ana_var18.html' %}");  -->
   $("#includedNotebook").load(mypath); 
 });
-
 </script>
 
+<!-- <script> 
 
+ var surl = "http://alidata-staging.s3.amazonaws.com/static/notebook/ana_var18.html";
+$.ajax({
+            url: surl,
+            dataType: "jsonp",
+            jsonp: "tester",
+            jsonpCallback: "tester",
+            success: function(rdata) {
+                var aaa = rdata.body;
+               $("#includedNotebook").append(aaa);
+            },
+            error: function(rdata) {
+                alert('Error' + rdata);
+            }
+        });
+</script> -->
+
+<script>
+  var mypath = "{% static 'notebook/' %}" + '{{notebook_name|safe}}';
+document.write(mypath);
+</script>
 
 </head>
 
@@ -29,7 +49,7 @@ $(function(){
 <div id="includedNotebook"></div>
 
 <!-- {% static 'notebook/ana_var18.html' %} -->
-
+<!-- https://alidata-staging.s3.amazonaws.com/static/notebook/ana_var18.html  -->
 
 <!-- <link rel="import" href="{% static 'notebook/ana_var18.html' %}"> -->
 
